@@ -17,19 +17,9 @@ package org.springframework.samples.petclinic.product;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.validation.Valid;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Map;
 
 /**
  * @author 
@@ -46,9 +36,18 @@ class ProductController {
    public String processFindForm(Model model) {
 	   //TODO utilizar findAll() do repositorio para
 	   //recuperar a lista de produtos
-	   ArrayList<Product> productsList = new ArrayList<Product>();
-	   model.addAttribute("products", productsList);
-	   return "products/productsList";
+		ArrayList<Product> productsList = new ArrayList<Product>();
+		
+		Product p1 = new Product();
+		p1.setId(1);
+		p1.setName("Golden gato adulto salmão 1kg");
+		productsList.add(p1);
+		Product p2 = new Product();
+		p2.setId(2);
+		p2.setName("Frango Sonoro Vinil");
+		productsList.add(p2);
+		model.addAttribute("products", productsList);
+		return "products/productsList";
    }
 
 }
