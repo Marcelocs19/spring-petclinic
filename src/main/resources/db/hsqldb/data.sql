@@ -52,6 +52,6 @@ INSERT INTO visits VALUES (2, 8, '2013-01-02', 'rabies shot');
 INSERT INTO visits VALUES (3, 8, '2013-01-03', 'neutered');
 INSERT INTO visits VALUES (4, 7, '2013-01-04', 'spayed');
 
-INSERT INTO products VALUES (1, 'Golden gato adulto salmão 1kg');
-INSERT INTO products VALUES (2, 'Frango Sonoro Vinil');
-INSERT INTO products VALUES (3, 'Whiskas sachet');
+INSERT INTO products VALUES (1, 'Golden gato adulto salmao 1kg', 'Formulada com ingredientes de alta qualidade e balanceada para suprir às particularidades nutricionais dos felinos.');
+INSERT INTO products VALUES (2, 'Frango Sonoro Vinil', 'Brinquedo frango em vinil sonoro. Dimensões: Altura: 38cm Largura: 10 cm Profundidade: 8 cm');
+INSERT INTO products VALUES (3, 'Whiskas sachet', 'Independentes, elegantes e exigentes, gatos são seres únicos que possuem particularidades fascinantes.');
