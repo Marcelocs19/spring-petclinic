@@ -54,3 +54,4 @@ INSERT INTO visits VALUES (4, 7, '2013-01-04', 'spayed');
 
 INSERT INTO products VALUES (1, 'Golden gato adulto salmão 1kg');
 INSERT INTO products VALUES (2, 'Frango Sonoro Vinil');
+INSERT INTO products VALUES (3, 'Whiskas sachet');

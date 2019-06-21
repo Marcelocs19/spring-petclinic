@@ -15,39 +15,30 @@
  */
 package org.springframework.samples.petclinic.product;
 
+import java.util.Collection;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
-
 /**
- * @author 
+ * @author
  */
 @Controller
 class ProductController {
-	
-	//TODO criar atributo para o repositorio
-	
-	//TODO criar construtor para receber repositorio
-	//mantido pelo String
 
-   @GetMapping("/products")
-   public String processFindForm(Model model) {
-	   //TODO utilizar findAll() do repositorio para
-	   //recuperar a lista de produtos
-		ArrayList<Product> productsList = new ArrayList<Product>();
-		
-		Product p1 = new Product();
-		p1.setId(1);
-		p1.setName("Golden gato adulto salmão 1kg");
-		productsList.add(p1);
-		Product p2 = new Product();
-		p2.setId(2);
-		p2.setName("Frango Sonoro Vinil");
-		productsList.add(p2);
+	private ProductRepository products;
+
+	public ProductController(ProductRepository products) {
+		super();
+		this.products = products;
+	}
+
+	@GetMapping("/products")
+	public String processFindForm(Model model) {
+		Collection<Product> productsList = products.findAll();
 		model.addAttribute("products", productsList);
 		return "products/productsList";
-   }
+	}
 
 }
