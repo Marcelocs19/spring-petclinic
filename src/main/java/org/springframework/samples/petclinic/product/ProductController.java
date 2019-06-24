@@ -43,11 +43,11 @@ class ProductController {
 		return "products/productsList";
 	}
 	
-	@GetMapping("/products/{id}")
-	public String processFindFormProduct(@PathVariable Integer id, Model model) {
-		Optional<Product> productsList = products.findById(id);
-		model.addAttribute("products", productsList.get());
-		return "products/catalogProduct" ;
+	@GetMapping("/products/{productId}")
+	public String processFindFormProduct(@PathVariable Integer productId, Model model) {
+		Optional<Product> productsList = products.findById(productId);
+		model.addAttribute("product", productsList.get());
+		return "products/catalogProduct";
 	}
 
 }

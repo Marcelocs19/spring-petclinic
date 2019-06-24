@@ -13,11 +13,19 @@ th:replace="~{fragments/layout :: layout (~{::body},'products')}">
             <th style="width: 150px;">Name</th>
             <th style="width: 150px;">Description</th>
             <th style="width: 150px;">Peso</th>
-        </tr>
+        </tr>        
+        </thead>
          <tbody>
         	<tr>
-      	 	<p th:text="${products.name}"/></p>
-       		<p th:text="${products.description}"/></p>
+        	 <td>
+      	 		<p th:text="${product.name}"/></p>
+      	 	 </td>
+      	 	 <td>
+       			<p th:text="${product.description}"/></p>
+       		 </td>
+       		 <td>
+       			<p th:text="${product.peso}"/></p>
+       		 </td>
             </tr>
         </tbody>
        </table>

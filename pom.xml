@@ -175,6 +175,7 @@
         </configuration>
       </plugin>
 
+
       <plugin>
         <groupId>ro.isdc.wro4j</groupId>
         <artifactId>wro4j-maven-plugin</artifactId>
@@ -206,7 +207,7 @@
             <version>${mockito.version}</version>
           </dependency>
         </dependencies>
-      </plugin>
+      </plugin>      
     </plugins>
   </build>
 
