@@ -11,12 +11,20 @@ th:replace="~{fragments/layout :: layout (~{::body},'products')}">
         <thead>
         <tr>
             <th style="width: 150px;">Name</th>
+            <th style="width: 150px;">Description</th>
+            <th style="width: 150px;">Peso</th>
         </tr>
         </thead>
         <tbody>
           <tr th:each="prod : ${products}">
               <td>
                   <a th:href="@{/products/__${prod.id}__}" th:text="${prod.name}"/></a>
+              </td>
+              <td>
+               <p th:href="@{/products/__${prod.id}__}" th:text="${prod.description}"/></p>
+              </td>
+              <td>
+               <p th:href="@{/products/__${prod.id}__}" th:text="${prod.peso}"/></p>
               </td>
           </tr>
         </tbody>

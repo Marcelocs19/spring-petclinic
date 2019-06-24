@@ -10,6 +10,7 @@ import org.springframework.samples.petclinic.model.NamedEntity;
 public class Product extends NamedEntity {
 
 	private String description;
+	private String peso;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -19,6 +20,14 @@ public class Product extends NamedEntity {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getPeso() {
+		return peso;
+	}
+
+	public void setPeso(String peso) {
+		this.peso = peso;
 	}
 	
 			
