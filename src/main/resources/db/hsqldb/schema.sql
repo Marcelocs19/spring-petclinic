@@ -69,7 +69,8 @@ CREATE TABLE products (
   id          INTEGER IDENTITY PRIMARY KEY,
   name 		  VARCHAR(80),
   description CLOB(5K),
-  peso        VARCHAR(20)
+  peso        VARCHAR(20),
+  preco       VARCHAR(10)
 );
 CREATE INDEX products_name ON products (name);
 

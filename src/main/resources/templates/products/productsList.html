@@ -13,6 +13,7 @@ th:replace="~{fragments/layout :: layout (~{::body},'products')}">
             <th style="width: 150px;">Name</th>
             <th style="width: 150px;">Description</th>
             <th style="width: 150px;">Peso</th>
+            <th style="width: 150px;">Preco</th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +26,9 @@ th:replace="~{fragments/layout :: layout (~{::body},'products')}">
               </td>
               <td>
                <p th:href="@{/products/__${prod.id}__}" th:text="${prod.peso}"/></p>
+              </td>
+              <td>
+               <p th:href="@{/products/__${prod.id}__}" th:text="${prod.preco}"/></p>
               </td>
           </tr>
         </tbody>
