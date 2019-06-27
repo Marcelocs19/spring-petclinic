@@ -22,6 +22,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author
@@ -29,7 +30,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 class ProductController {
 
-	private ProductRepository products;
+	private final ProductRepository products;
 
 	public ProductController(ProductRepository products) {
 		super();
@@ -47,7 +48,7 @@ class ProductController {
 	public String processFindFormProduct(@PathVariable Integer productId, Model model) {
 		Optional<Product> productsList = products.findById(productId);
 		model.addAttribute("product", productsList.get());
-		return "products/catalogProduct";
+		return "products/catalogProduct"; 
 	}
 
 }

@@ -7,31 +7,20 @@ th:replace="~{fragments/layout :: layout (~{::body},'products')}">
 
     <h2>Catalog Product</h2>
     
-       <table id="products" class="table table-striped">
-        <thead>
-        <tr>
-            <th style="width: 150px;">Name</th>
-            <th style="width: 150px;">Description</th>
-            <th style="width: 150px;">Peso</th>
-            <th style="width: 150px;">Preco</th>
-        </tr>        
-        </thead>
-         <tbody>
-        	<tr>
-        	 <td>
-      	 		<p th:text="${product.name}"/></p>
-      	 	 </td>
-      	 	 <td>
-       			<p th:text="${product.description}"/></p>
-       		 </td>
-       		 <td>
-       			<p th:text="${product.peso}"/></p>
-       		 </td>
-       		 <td>
-       			<p th:text="${product.preco}"/></p>
-       		 </td>
-            </tr>
-        </tbody>
+    <table class="table table-striped" th:object="${product}">
+      <tr>
+        <th>Name</th>
+        <td th:text="*{name}" /></td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td th:text="*{description}" /></td>
+      </tr>
+      <tr>
+        <th>Peso</th>
+        <td th:text="*{peso}" /></td>
+      </tr>
+    </table>
 
 
   </body>
