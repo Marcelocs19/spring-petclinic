@@ -18,11 +18,8 @@ package org.springframework.samples.petclinic.product;
 import java.util.Collection;
 import java.util.Optional;
 
-import org.springframework.data.jpa.repository.Query;
+
 import org.springframework.data.repository.Repository;
-import org.springframework.data.repository.query.Param;
-import org.springframework.samples.petclinic.owner.Owner;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Repository class for <code>Owner</code> domain objects All method names are compliant with Spring Data naming
