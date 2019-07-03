@@ -62,10 +62,9 @@
                   <li th:replace="::menuItem ('/products','products','product catalog','th-list','products')">
                       <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                       <span>Products</span>
-                  </li>
+                  </li>                  
   				  
-  				  <li th:replace="::menuItem ('/login','login',${#httpServletRequest.remoteUser},'th-list','login')">
-  				      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+  				  <li th:replace="::menuItem ('/login','login',${#httpServletRequest.remoteUser},'th-list',${#httpServletRequest.remoteUser == null ? 'Login' : #httpServletRequest.remoteUser})">
                       <span>Login</span>
   				  </li>
   				  
@@ -73,6 +72,7 @@
           </div>
       </div>
   </nav>
+ 
   <div class="container-fluid">
       <div class="container xd-container">
   
