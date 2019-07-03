@@ -63,8 +63,12 @@
                       <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                       <span>Products</span>
                   </li>
-  
-  
+  				  
+  				  <li th:replace="::menuItem ('/login','login',${#httpServletRequest.remoteUser},'th-list','login')">
+  				      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                      <span>Login</span>
+  				  </li>
+  				  
               </ul>
           </div>
       </div>
