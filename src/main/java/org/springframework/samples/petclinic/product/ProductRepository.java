@@ -16,10 +16,10 @@
 package org.springframework.samples.petclinic.product;
 
 import java.util.Collection;
-import java.util.Optional;
 
 
 import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.query.Param;
 
 /**
  * Repository class for <code>Owner</code> domain objects All method names are compliant with Spring Data naming
@@ -31,7 +31,7 @@ import org.springframework.data.repository.Repository;
 public interface ProductRepository extends Repository<Product, Integer> {
 	
 	Collection<Product> findAll();
-	Optional<Product> findById(Integer id); 
+	Product findById(@Param("id") Integer id); 
  
 	
 }

@@ -35,6 +35,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.samples.petclinic.owner.Owner;
 import org.springframework.samples.petclinic.owner.OwnerController;
 import org.springframework.samples.petclinic.owner.OwnerRepository;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -45,6 +46,7 @@ import org.springframework.test.web.servlet.MockMvc;
  */
 @RunWith(SpringRunner.class)
 @WebMvcTest(OwnerController.class)
+@WithMockUser(roles="OWNER_ADMIN")
 public class OwnerControllerTests {
 
     private static final int TEST_OWNER_ID = 1;
@@ -69,7 +71,7 @@ public class OwnerControllerTests {
         given(this.owners.findById(TEST_OWNER_ID)).willReturn(george);
     }
 
-    @Test
+    @Test    
     public void testInitCreationForm() throws Exception {
         mockMvc.perform(get("/owners/new"))
             .andExpect(status().isOk())

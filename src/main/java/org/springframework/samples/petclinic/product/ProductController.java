@@ -16,12 +16,12 @@
 package org.springframework.samples.petclinic.product;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author
@@ -42,12 +42,18 @@ class ProductController {
 		model.addAttribute("products", productsList);
 		return "products/productsList";
 	}
-	
 	@GetMapping("/products/{productId}")
-	public String processFindFormProduct(@PathVariable Integer productId, Model model) {
-		Optional<Product> productsList = products.findById(productId);
-		model.addAttribute("product", productsList.get());
-		return "products/catalogProduct"; 
+	public ModelAndView showProduct(@PathVariable("productId") int productId) {
+        ModelAndView mav = new ModelAndView("products/catalogProduct");
+        mav.addObject(this.products.findById(productId));
+        return mav;		
 	}
+	
+//	@GetMapping("/products/{productId}")
+//	public String processFindFormProduct(@PathVariable Integer productId, Model model) {
+//		Optional<Product> productsList = products.findById(productId);
+//		model.addAttribute("product", productsList.get());
+//		return "products/catalogProduct"; 
+//	}
 
 }

@@ -18,8 +18,11 @@ package org.springframework.samples.petclinic.product;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.is;
 
 import org.assertj.core.util.Lists;
 import org.junit.Before;
@@ -28,6 +31,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -39,6 +43,7 @@ import org.springframework.test.web.servlet.MockMvc;
  */
 @RunWith(SpringRunner.class)
 @WebMvcTest(ProductController.class)
+@WithMockUser(roles="PRODUCT_ADMIN")
 public class ProductControllerTests {
 
     private static final int TEST_PRODUCT_ID = 1;
@@ -55,9 +60,9 @@ public class ProductControllerTests {
     public void setup() {
     	golden = new Product();
     	golden.setId(TEST_PRODUCT_ID);
-    	golden.setName("George");
+    	golden.setName("Golden gato adulto salmao");
     	golden.setDescription("Formulada com ingredientes de alta qualidade e balanceada para suprir às particularidades nutricionais dos felinos.");
-        //given(this.products.findById(TEST_PRODUCT_ID)).willReturn(golden);
+        given(this.products.findById(TEST_PRODUCT_ID)).willReturn(golden);
     }
    
 
@@ -68,6 +73,14 @@ public class ProductControllerTests {
             .andExpect(status().isOk())
             .andExpect(model().attributeExists("products"));
         
+    }
+    
+    @Test
+    public void testShowProduct() throws Exception {
+        mockMvc.perform(get("/products/{productId}", TEST_PRODUCT_ID))
+            .andExpect(status().isOk())
+            .andExpect(model().attribute("product", hasProperty("name", is("Golden gato adulto salmao"))))
+            .andExpect(view().name("products/catalogProduct"));
     }
     
 
