@@ -3,9 +3,7 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
     <body>
-        <h2> Login </h2>
-        
-        
+        <h2> Login </h2>        
 
         	<div th:if="${param.error}">
            		Invalid username and password.
@@ -25,7 +23,7 @@
         	
         <div th:if="${#httpServletRequest.remoteUser != null}">        
         	<form th:action="@{/logout}" method="post">
-    	   		 <input type="submit" value="Logout"</input>
+    	   		 <input type="submit" value="Logout"></input>
  	    	</form> 	    
  	    </div>
     </body>
